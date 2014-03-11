@@ -10,9 +10,15 @@ function GreetingCtrl($scope) {
 }
 
 	
-function HelloCtrl($scope) {	
-	$scope.sayHello = function {
+function HelloCtrl($scope, $window) {	
+	$scope.sayHello = function () {
     	$window.alert('HELLO!');
 	};
 
 }
+
+function FavoriteCatCtrl($scope){
+	$scope.favoriteCat='Vivian';
+	}
+
+
