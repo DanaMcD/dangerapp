@@ -7,5 +7,12 @@ function GreetingCtrl($scope) {
 		{language: 'corsican', greetings: 'Salute'},
 		{language: 'german', greetings: 'Servas'}
 	];
+}
+
+	
+function HelloCtrl($scope) {	
+	$scope.sayHello = function {
+    	$window.alert('HELLO!');
+	};
 
 }
