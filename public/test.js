@@ -1,23 +1,23 @@
 var myApp = angular.module('myApp', []);
 
-function GreetingCtrl($scope) {
+function homePageCtrl($scope, $window) {
 	$scope.greeting = 'Hola!';
+	
 	$scope.hellos = [
 		{language: 'choctaw', greetings: 'Halito'},
 		{language: 'corsican', greetings: 'Salute'},
 		{language: 'german', greetings: 'Servas'}
 	];
-}
-	
-function HelloCtrl($scope, $window) {	
+
 	$scope.sayHello = function () {
     	$window.alert('HELLO!');
 	};
-}
 
-function favoriteCatCtrl($scope){
 	$scope.favoriteCat= 'Vivian';
-	$scope.setFavoriteCatToPurrie = 'Purrie';
+	
+	$scope.setFavoriteCatToPurrie = function () {
+		favoriteCat = 'Purrie';
+	};
 }
 
 
