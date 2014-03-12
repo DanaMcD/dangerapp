@@ -8,17 +8,19 @@ function GreetingCtrl($scope) {
 		{language: 'german', greetings: 'Servas'}
 	];
 }
-
 	
 function HelloCtrl($scope, $window) {	
 	$scope.sayHello = function () {
     	$window.alert('HELLO!');
 	};
-
 }
 
 function FavoriteCatCtrl($scope){
-	$scope.favoriteCat='Vivian';
-	}
+	$scope.favoriteCat= function () {
+		setFavoriteCatToPurrie = ('Purrie');
+	};
+}
+
+
 
 
