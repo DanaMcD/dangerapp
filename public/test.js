@@ -1,24 +1,25 @@
 var myApp = angular.module('myApp', []);
 
-function GreetingCtrl($scope) {
-	$scope.greeting = 'Hola!';
+// one controller can handle a whole page or section of page
+function homePageCtrl($scope, $window) {
+    $scope.greeting = 'Hola!';
+	
 	$scope.hellos = [
 		{language: 'choctaw', greetings: 'Halito'},
 		{language: 'corsican', greetings: 'Salute'},
 		{language: 'german', greetings: 'Servas'}
 	];
-}
-	
-function HelloCtrl($scope, $window) {	
-	$scope.sayHello = function () {
+
+    $scope.sayHello = function () {
     	$window.alert('HELLO!');
 	};
+
+	$scope.favoriteCat = 'Vivian';
+
+	// write a setFavoriteCatToPurrie() function here
+
 }
 
-function favoriteCatCtrl($scope){
-	$scope.favoriteCat= 'Vivian';
-	$scope.setFavoriteCatToPurrie = 'Purrie';
-}
 
 
 
