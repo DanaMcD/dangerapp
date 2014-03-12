@@ -15,10 +15,9 @@ function HelloCtrl($scope, $window) {
 	};
 }
 
-function FavoriteCatCtrl($scope){
-	$scope.favoriteCat= function () {
-		setFavoriteCatToPurrie = ('Purrie');
-	};
+function favoriteCatCtrl($scope){
+	$scope.favoriteCat= 'Vivian';
+	$scope.setFavoriteCatToPurrie = 'Purrie';
 }
 
 
