@@ -2,7 +2,7 @@ var myApp = angular.module('myApp', []);
 
 
 
-function homePageCtrl($scope, $window) {
+function homePageCtrl($scope, $window, $http) {
     $scope.greeting = 'Hola!';
 
 	
@@ -29,6 +29,9 @@ function homePageCtrl($scope, $window) {
 
 	$scope.favoriteCat = 'Vivian';
 
+	$http.get('/shirts').success(function (data) {
+        $scope.shirts = data.shirts;
+    });
 	
 }
 
