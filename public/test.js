@@ -29,6 +29,12 @@ function homePageCtrl($scope, $window, $http) {
 
 	$scope.favoriteCat = 'Vivian';
 
+	$scope.setFavoriteCatToPurrie = function () {
+        $scope.favoriteCat = 'Purrie';
+    };
+
+    
+
 	$http.get('/shirts').success(function (data) {
         $scope.shirts = data.shirts;
     });

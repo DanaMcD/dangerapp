@@ -1,7 +1,12 @@
 require 'sinatra'
 require 'json'
- 
 
+set :public_folder, 'public' 
+
+get '/' do
+        redirect '/index.html'
+end
+        
 get '/loud_greetings/:word' do
 	"#{params[:word]}!".upcase
 end

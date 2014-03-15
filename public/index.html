@@ -1,45 +1,63 @@
 <!DOCTYPE html>
+
 <html ng-app>
+
 <head>
+
 <title>Test</title>
+
 <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.12/angular.min.js"></script>
 <script type="text/javascript" src="test.js"></script>
 
 </head>
 
-<body ng-controller="homePageCtrl">
-	<div>		
-		{{ greeting }}
+	<body ng-controller="homePageCtrl">
+		<div>		
+			{{ greeting }}
+			<table>
+				<tr>
+					<td>Language</td>
+					<td>Greeting</td>
+				</tr>
+
+				<tr ng-repeat= "hello in hellos">
+					<td>{{hello.language}}</td>
+					<td>{{hello.greetings}}</td>
+				</tr>
+			</table>
+		</div>
+
+
+	<h2>Homeworks 2</h2>
+
+		<div>
+			<button type="button" ng-click="sayHello()">Hello!</button>
+		</div>
+
+		<div>
+			<p ng-show="favoriteCat === 'Vivian'">Vivian is your favorite cat!</p>
+
+			<button type="button" ng-click="setFavoriteCatToPurrie()">Change my favorite cat to Purrie!</button>
+			<p ng-show="favoriteCat === 'Purrie'">Purrie is your favorite cat!</p>
+	
+		</div>
+
+	<form>
+		Kitty Name:<input type="text" ng-model="favoriteCat"><br>
+			<p>Your favorite cat is {{favoriteCat}}!</p>
+	</form>
+
+	<h1>Something Else Completely Different</h1>
+
 		<table>
-			<tr>
-				<td>Language</td>
-				<td>Greeting</td>
+			<tr ng-repeat="shirt in shirts">
+				<td>{{shirt.team}}</td>
+				<td>{{shirt.size}}</td>
+				<td>{{shirt.quantity}}</td>
+				<td>{{shirt.price}}</td>
 			</tr>
-		<tr ng-repeat= "hello in hellos">
-			<td>{{hello.language}}</td>
-			<td>{{hello.greetings}}</td>
-		</tr>
-	</table>
-	</div>
-
-	<hr>
-<h2>Homeworks 2</h2>
-
-<div>
-	<button type="button" ng-click="sayHello()">Hello!</button>
-</div>
-
-<div>
-	<p ng-show="favoriteCat === 'Vivian'">Vivian is your favorite cat!</p>
-
-	<button type="button" ng-click="setFavoriteCatToPurrie()">Change my favorite cat to Purrie!</button>
-	<p> {{ favoriteCat }}</p>
+		</table>
 
 
-	<button type="button" ng-click="favoriteCat">Change my favorite cat to Purrie!</button>
-
-</div>
-
-
-</body>
+	</body>
 </html>
