@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app>
 
 <head>
 	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.14/angular.min.js"></script>
@@ -26,6 +26,10 @@
 
 		</table>
 
+		<button ng-click="isAddingCat = true" ng-hide="isAddingCat === true">Add Cat!</button>
+			<div id="addCat" ng-show="isAddingCat === true">
+				<button ng-click="saveCat()">Save</button>
+			</div>
 
 </body>
 </html>
