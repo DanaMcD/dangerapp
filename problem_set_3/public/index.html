@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.14/angular.min.js"></script>
+	<script type="text/javascript" src="main.js"></script>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body ng-controller="mainPageCtrl">
+	<h1 id="shelterTitle">The Nito Shelter For Tabby Cats</h1>
+		<table class="table">
+			<tr>
+				<td>Name</td>
+				<td>Age</td>
+				<td>Cat Friendly?</td>
+				<td>Size</td>
+			</tr>
+
+			<tr ng-repeat="kitty in kitties">
+				<td>{{kitty.name}}</td>
+				<td>{{kitty.age}}</td>
+				<td>{{kitty.likes_other_cats}}</td>
+				<td>{{kitty.size}}</td>
+			</tr>
+
+		</table>
+
+
+</body>
+</html>
