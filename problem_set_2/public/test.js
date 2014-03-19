@@ -17,23 +17,14 @@ function homePageCtrl($scope, $window, $http) {
     	$window.alert('HELLO!');
 	};
 
-	$scope.favoriteCat= 'Vivian';
+	//$scope.favoriteCat= 'Vivian';
 	
-	$scope.setFavoriteCatToPurrie = function () {
-		favoriteCat = 'Purrie';
-	};
+	//$scope.setFavoriteCatToPurrie = function () {
+		//favoriteCat = 'Purrie';
+	//};
 
-    $scope.sayHello = function () {
-    	$window.alert('HELLO!');
-	};
+   
 
-	$scope.favoriteCat = 'Vivian';
-
-	$scope.setFavoriteCatToPurrie = function () {
-        $scope.favoriteCat = 'Purrie';
-    };
-
-    
 
 	$http.get('/shirts').success(function (data) {
         $scope.shirts = data.shirts;

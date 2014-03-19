@@ -34,17 +34,17 @@
 			<button type="button" ng-click="sayHello()">Hello!</button>
 		</div>
 
-		<div>
+		<!--<div>
 			<p ng-show="favoriteCat === 'Vivian'">Vivian is your favorite cat!</p>
 
 			<button type="button" ng-click="setFavoriteCatToPurrie()">Change my favorite cat to Purrie!</button>
 			<p ng-show="favoriteCat === 'Purrie'">Purrie is your favorite cat!</p>
 	
-		</div>
+		</div>-->
 
 	<form>
 		Kitty Name:<input type="text" ng-model="favoriteCat"><br>
-			<p>Your favorite cat is {{favoriteCat}}!</p>
+			<p ng-show="favoriteCat">Your favorite cat is {{favoriteCat}}!</p>
 	</form>
 
 	<h1>Something Else Completely Different</h1>
