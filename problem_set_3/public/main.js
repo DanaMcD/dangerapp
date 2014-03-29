@@ -1,24 +1,21 @@
 var myApp = angular.module('myApp', []);
 
-function mainPageCtrl($scope) {
+function mainPageCtrl($scope, $http) {
 	
-	$scope.kitties = [
-		{name: 'KitKat', age: 1, likes_other_cats: false, size: 'small'},
-		{name: 'Purrito', age: 2, likes_other_cats: true, size: 'small'},
-		{name: 'Gotcha', age: 1, likes_other_cats: true, size: 'large'},
-		{name: 'Fancy', age: 10, likes_other_cats: true, size: 'medium'},
-		{name: 'Boob', age: 8, likes_other_cats: false, size: 'large'}
-	];
-
+	$http.get('/cats').success(function (data) {
+		$scope.kitties = data.cats;
+	});
 
 	$scope.initializeForm = function () {
 		$scope.isAddingCat = true; 
-		$scope.newCat = {name:'', age:'', likes_other_cats: true, size:'small'};
+		$scope.newCat = {name:'', age:'', size:'small'};
 	};
 
 	$scope.saveCat = function () {
 		$scope.isAddingCat = false;
 		$scope.newCat.age = parseInt($scope.newCat.age);
-		$scope.kitties.push($scope.newCat);
+		$http.post('/cats', {cat: $scope.newCat}).success(function () {
+			alert("New cat was posted successfully!");
+		});
 	};
 }
