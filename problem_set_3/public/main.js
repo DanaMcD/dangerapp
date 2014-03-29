@@ -10,6 +10,7 @@ function mainPageCtrl($scope) {
 		{name: 'Boob', age: 8, likes_other_cats: false, size: 'large'}
 	];
 
+
 	$scope.initializeForm = function () {
 		$scope.isAddingCat = true; 
 		$scope.newCat = {name:'', age:'', likes_other_cats: true, size:'small'};
@@ -17,6 +18,7 @@ function mainPageCtrl($scope) {
 
 	$scope.saveCat = function () {
 		$scope.isAddingCat = false;
-		//$scope.kitties.push({text:$scope.newCat})
+		$scope.newCat.age = parseInt($scope.newCat.age);
+		$scope.kitties.push({$scope.newCat})
 	};
 }
