@@ -28,9 +28,8 @@
 
 	
 
-		{{newCat}}
 		<button ng-click="initializeForm()" ng-hide="isAddingCat" ng-model="initializeForm">Add Cat!</button>
-		<div id="addCat" ng-show="!isAddingCat">
+		<div id="addCat" ng-show="isAddingCat">
 			<form>
 				Name:<input type="text" ng-model="newCat.name"></br>
 				

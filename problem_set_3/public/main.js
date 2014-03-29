@@ -19,6 +19,6 @@ function mainPageCtrl($scope) {
 	$scope.saveCat = function () {
 		$scope.isAddingCat = false;
 		$scope.newCat.age = parseInt($scope.newCat.age);
-		$scope.kitties.push({$scope.newCat})
+		$scope.kitties.push($scope.newCat);
 	};
 }
