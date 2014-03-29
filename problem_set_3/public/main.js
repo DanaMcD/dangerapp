@@ -10,9 +10,13 @@ function mainPageCtrl($scope) {
 		{name: 'Boob', age: 8, likes_other_cats: false, size: 'large'}
 	];
 
-	$scope.isAddingCat = false; 
+	$scope.initializeForm = function () {
+		$scope.isAddingCat = true; 
+		$scope.newCat = {name:'', age:'', likes_other_cats: true, size:'small'};
+	};
 
 	$scope.saveCat = function () {
 		$scope.isAddingCat = false;
+		//$scope.kitties.push({text:$scope.newCat})
 	};
 }

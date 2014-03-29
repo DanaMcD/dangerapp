@@ -27,25 +27,26 @@
 	</table>
 
 	
-
-		<button ng-click="isAddingCat = true" ng-hide="isAddingCat === true">Add Cat!</button>
-		<div id="addCat" ng-show="isAddingCat === true">
+		{{newCat}}
+		<button ng-click="initializeForm()" ng-hide="isAddingCat" ng-model="initializeForm">Add Cat!</button>
+		<div id="addCat" ng-show="!isAddingCat">
 			<form>
-				Name:<input type="name" name="name"></br>
+				Name:<input type="text" ng-model="newCat.name"></br>
 				
-				Age(years):<input type="age" name="age"></br>
+				Age(years):<input type="text" ng-model="newCat.age"></br>
 				
-				<p>Likes Other Cats?</p>
-					<input type="checkbox" name="likesOtherCats" value="yes">Yes</br>
-					<input type="checkbox" name="likesOtherCats" value="no">No</br>
+				
+					<input type="checkbox" name="likesOtherCats" ng-model="newCat.likes_other_cats">Gets Along With Other Cats</br>
+					
 				
 				<p>Cat Size</p>
-					<form action="">
-						<select name="catSize">
-							<option value="Small">Small</option>
-							<option value="Medium">Medium</option>
-							<option value="Large">Large</option>
-			
+					
+						<select name="catSize" ng-model="newCat.size">
+							<option value="small">small</option>
+							<option value="medium">medium</option>
+							<option value="large">large</option>
+						</select>
+					
 			</form>
 			
 			<button ng-click="saveCat()">Save</button>
