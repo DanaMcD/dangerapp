@@ -17,12 +17,11 @@ get '/cats' do
 end
 
 post '/cats' do
-	data = JSON.parse(request.body.read)
-
-	new_cat = data['cat']
+	data = JSON.parse(request.body.read.to_s)
+    new_cat = data['cat']
 	
 	db = Sequel.sqlite('development.db')
 	cats = db[:cats]
-	new_cat = params[:cat]
-	cats.insert(:name => new_cat[:name], :age => new_cat[:age], :size => new_cat[:size])
+	cats.insert(:name => new_cat['name'], :age => new_cat['age'], :size => new_cat['size'])
+    "Success!"
 end
