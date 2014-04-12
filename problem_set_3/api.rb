@@ -25,3 +25,10 @@ post '/cats' do
 	cats.insert(:name => new_cat['name'], :age => new_cat['age'], :size => new_cat['size'])
     "Success!"
 end
+
+get '/cats/:name' do 
+    db = Sequel.sqlite('development.db')
+    cat = db[:cats].where(:name=>'Purrie').to_a.first
+    
+    
+end
