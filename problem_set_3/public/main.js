@@ -1,6 +1,8 @@
 var myApp = angular.module('myApp', []);
 
 function mainPageCtrl($scope, $http) {
+
+	$http.delete('/cats/Julius');
 	
 	function getCats () {
 		$http.get('/cats').success(function (data) {

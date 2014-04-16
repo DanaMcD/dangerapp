@@ -28,7 +28,13 @@ end
 
 get '/cats/:name' do 
     db = Sequel.sqlite('development.db')
-    cat = db[:cats].where(:name=>'Purrie').to_a.first
-    
-    
+    cat = db[:cats].where(:name => params[:name]).to_a.first
+    response = {'cat' => cat}
+    response.to_json
+end
+
+delete '/cats/:name' do
+	db = Sequel.sqlite('development.db')
+	cat = db[:cats].where(:name => params[:name]).delete
+	"Cat was adopted!"
 end
