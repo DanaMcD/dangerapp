@@ -1,8 +1,8 @@
 var myApp = angular.module('myApp', []);
 
-function mainPageCtrl($scope, $http) {
+function mainPageCtrl($scope, $http, $index) {
 
-	$http.delete('/cats/Julius');
+	//$http.update('/cats/Samson');
 	
 	function getCats () {
 		$http.get('/cats').success(function (data) {
@@ -25,4 +25,8 @@ function mainPageCtrl($scope, $http) {
 		});
 		getCats();
 	};
+
+	//$scope.intitializeEdit = function () {
+	//	"hello, world"
+	//};
 }
