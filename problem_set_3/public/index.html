@@ -22,12 +22,27 @@
 			<td>{{kitty.age}}</td>
 			<!-- <td>{{kitty.likes_other_cats}}</td> -->
 			<td>{{kitty.size}}</td>
-			<td><button ng-click="initializeEdit()">Edit Cat!</button></td>
+			<td><button ng-click="initializeEdit($index)" ng-hide="isEditingCat">Edit Cat!</button>
+						<div id="editCat" ng-show="isEditingCat">
+			<form>
+				Name:<input type="text" ng-model="editCat.name"></br>
+
+				Age(years):<input type="text" ng-model="editCat.age"></br>
+
+				<p>Cat Size</p>
+					
+						<select name="catSize" ng-model="editCat.size">
+							<option value="small">small</option>
+							<option value="medium">medium</option>
+							<option value="large">large</option>
+						</select>
+			</form>	
+			</td>
 		</tr>
 
 	</table>
 
-	
+
 
 		<button ng-click="initializeForm()" ng-hide="isAddingCat" ng-model="initializeForm">Add Cat!</button>
 		<div id="addCat" ng-show="isAddingCat">

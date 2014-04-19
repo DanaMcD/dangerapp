@@ -40,7 +40,10 @@ end
 #end
 
 put 'cats/:name' do
+	data = JSON.parse(request.body.read.to_s)
+	edit_cat = data['cat']
+
 	db = Sequel.sqlite('development.db')
-	db[:cats].where(:name => params[:name]).update(:age => params[:age], :age=> params[:age])
+	cat = db[:cats].where(:name => params[:name]).update(:name => params[:name], :age => params[:age], :size => params[:size])
 	"Cat was updated!"
 end

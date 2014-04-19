@@ -1,6 +1,6 @@
 var myApp = angular.module('myApp', []);
 
-function mainPageCtrl($scope, $http, $index) {
+function mainPageCtrl($scope, $http) {
 
 	//$http.update('/cats/Samson');
 	
@@ -26,7 +26,10 @@ function mainPageCtrl($scope, $http, $index) {
 		getCats();
 	};
 
-	//$scope.intitializeEdit = function () {
-	//	"hello, world"
-	//};
+	$scope.intitializeEdit = function () {
+		$scope.isEditingCat = true;
+		
+	};
+
+	$scope
 }
