@@ -2,7 +2,7 @@ var myApp = angular.module('myApp', []);
 
 function mainPageCtrl($scope, $http) {
 
-	//$http.update('/cats/Samson');
+	$http.put('/cats/Samson');
 	
 	function getCats () {
 		$http.get('/cats').success(function (data) {
@@ -12,24 +12,29 @@ function mainPageCtrl($scope, $http) {
 
 	getCats();
 
-	$scope.initializeForm = function () {
+	$scope.addCat = function () {
 		$scope.isAddingCat = true; 
 		$scope.newCat = {name:'', age:'', size:'small'};
+		$scope.formTask = 'new';
 	};
+
+	$scope.modifyCat = function () {
+		$scope.isModifyingCat = true;
+		$scope.formTask = 'edit';
+		};
 
 	$scope.saveCat = function () {
-		$scope.isAddingCat = false;
-		$scope.newCat.age = parseInt($scope.newCat.age);
-		$http.post('/cats', {cat: $scope.newCat}).success(function () {
-			alert("New cat was posted successfully!");
-		});
+		if ($scope.formTask === 'new') {
+			$scope.isAddingCat = false;
+			$scope.newCat.age = parseInt($scope.newCat.age);
+			$http.post('/cats', {cat: $scope.newCat}).success(function () {
+				alert("New cat was posted successfully!");
+			});
+		}; else if($scope.formTask === 'edit') {
+			$scope.isModifyingCatForm = false;
+				alert("Cat was updated successfully!");
+		};
 		getCats();
 	};
-
-	$scope.intitializeEdit = function () {
-		$scope.isEditingCat = true;
-		
-	};
-
-	$scope
+	
 }
