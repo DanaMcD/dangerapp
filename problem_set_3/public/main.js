@@ -2,7 +2,7 @@ var myApp = angular.module('myApp', []);
 
 function mainPageCtrl($scope, $http) {
 
-	$http.put('/cats/Samson');
+	//$http.put('/cats/Samson');
 	
 	function getCats () {
 		$http.get('/cats').success(function (data) {
@@ -20,6 +20,8 @@ function mainPageCtrl($scope, $http) {
 
 	$scope.modifyCat = function () {
 		$scope.isModifyingCat = true;
+        $scope.editCat = {name: '', age:'', size:'small'};
+        //not sure how to save old cat name to new cat name
 		$scope.formTask = 'edit';
 		};
 
@@ -30,10 +32,10 @@ function mainPageCtrl($scope, $http) {
 			$http.post('/cats', {cat: $scope.newCat}).success(function () {
 				alert("New cat was posted successfully!");
 			});
-		}; else if($scope.formTask === 'edit') {
+		} else if($scope.formTask === 'edit') {
 			$scope.isModifyingCatForm = false;
 				alert("Cat was updated successfully!");
-		};
+		}
 		getCats();
 	};
 	
