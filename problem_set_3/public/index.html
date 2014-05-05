@@ -22,27 +22,25 @@
 			<td>{{kitty.age}}</td>
 			<!-- <td>{{kitty.likes_other_cats}}</td> -->
 			<td>{{kitty.size}}</td>
-			<td><button ng-click="modifyCatForm($index)" ng-hide="isModifyingCatForm">Edit</button></td>
+			<td><button ng-click="modifyCat($index)" ng-hide="isModifyingCat">Edit</button></td>
 		</tr>
 
 	</table>
 
 
 
-		<button ng-click="initializeForm()" ng-hide="isAddingCat" ng-model="initializeForm">Add Cat!</button>
-		<div id="addCat" ng-show="isAddingCat">
+		<button ng-click="addCat()" ng-hide="catFormIsVisible" ng-model="addCat">Add Cat!</button>
+		<div id="addCat" ng-show="catFormIsVisible">
 			<form>
-				Name:<input type="text" ng-model="newCat.name"></br>
+				Name:<input type="text" ng-model="catFormData.name"></br>
 				
-				Age(years):<input type="text" ng-model="newCat.age"></br>
-				
-				
-					<!-- <input type="checkbox" name="likesOtherCats" ng-model="newCat.likes_other_cats">Gets Along With Other Cats</br> -->
+				Age(years):<input type="text" ng-model="catFormData.age"></br>
+
 					
 				
 				<p>Cat Size</p>
 					
-						<select name="catSize" ng-model="newCat.size">
+						<select name="catSize" ng-model="catFormData.size">
 							<option value="small">small</option>
 							<option value="medium">medium</option>
 							<option value="large">large</option>
