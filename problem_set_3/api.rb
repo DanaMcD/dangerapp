@@ -39,7 +39,7 @@ end
 	#"Cat was adopted!"
 #end
 
-put 'cats/:name' do
+put '/cats/:name' do
 	data = JSON.parse(request.body.read.to_s)
 	edit_cat = data['cat']
 

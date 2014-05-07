@@ -27,21 +27,22 @@ function mainPageCtrl($scope, $http) {
     };
 
     $scope.saveCat = function () {
-        switch (formTask) {
+        switch ($scope.formTask) {
             //change to a switch statement to increase future functionality
             case 'new':
                 $scope.catFormData.age = parseInt($scope.catFormData.age);
                 $http.post('/cats', {cat: $scope.catFormData}).success(function () {
                     alert("New cat was posted successfully!");
+                    getCats();
                 });
                 break;
             case 'edit':
                 $scope.catFormIsVisible = false;
                 $http.post('/cats', {cat: $scope.catFormData}).success(function () {
                     alert("Cat was updated successfully!");
+                    getCats();
                 });
                 break;
         }
-        getCats();
     }
 }
