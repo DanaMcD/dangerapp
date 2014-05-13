@@ -31,14 +31,14 @@ function mainPageCtrl($scope, $http) {
             //change to a switch statement to increase future functionality
             case 'new':
                 $scope.catFormData.age = parseInt($scope.catFormData.age);
-                $http.post('/cats', {cat: $scope.catFormData}).success(function () {
+                $http.post('/cats/', {cat: $scope.catFormData}).success(function () {
                     alert("New cat was posted successfully!");
                     getCats();
                 });
                 break;
             case 'edit':
                 $scope.catFormIsVisible = false;
-                $http.put('/cats/:name', {cat: $scope.catFormData}).success(function () {
+                $http.put('/cats/', {cat: $scope.catFormData}).success(function () {
                     alert("Cat was updated successfully!");
                     getCats();
                 });
