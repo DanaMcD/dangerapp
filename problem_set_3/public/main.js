@@ -38,7 +38,7 @@ function mainPageCtrl($scope, $http) {
                 break;
             case 'edit':
                 $scope.catFormIsVisible = false;
-                $http.put('/cats/', {cat: $scope.catFormData}).success(function () {
+                $http.put('/cats/' + $scope.kitties[$scope.selectedCat].name, {cat: $scope.catFormData}).success(function () {
                     alert("Cat was updated successfully!");
                     getCats();
                 });
