@@ -38,6 +38,7 @@ function mainPageCtrl($scope, $http) {
                 break;
             case 'edit':
                 $scope.catFormIsVisible = false;
+                $scope.catFormData.age = parseInt($scope.catFormData.age);
                 $http.put('/cats/' + $scope.kitties[$scope.selectedCat].name, {cat: $scope.catFormData}).success(function () {
                     alert("Cat was updated successfully!");
                     getCats();

@@ -44,6 +44,6 @@ put '/cats/:name' do
 	edit_cat = data['cat']
 
 	db = Sequel.sqlite('development.db')
-	cat = db[:cats].where(:name => params[:name]).update(:name => params[:name], :age => params[:age], :size => params[:size])
+	cat = db[:cats].where(:name => params[:name]).update(:name => edit_cat['name'], :age => edit_cat['age'], :size => edit_cat['size'])
 	"Cat was updated!"
 end
